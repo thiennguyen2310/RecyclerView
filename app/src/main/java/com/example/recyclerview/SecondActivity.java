@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
-    TextView textView, detail;
+    TextView textView, tv_detail;
     ImageView imageView;
 
     @Override
@@ -17,13 +17,17 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         Bundle bundle = getIntent().getExtras();
-        String str = bundle.getString("key");
+
         textView = findViewById(R.id.tv_name);
-        detail = findViewById(R.id.tv_detail);
+        tv_detail = findViewById(R.id.tv_detail);
         imageView = findViewById(R.id.iv_char);
 
-        textView.setText(str);
-        detail.setText();
-        imageView.setImageResource();
+        String name = bundle.getString("name");
+        String detail = bundle.getString("detail");
+        int image = bundle.getInt("image");
+
+        textView.setText(name);
+        tv_detail.setText(detail);
+        imageView.setImageResource(image);
     }
 }
